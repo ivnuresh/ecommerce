@@ -1,0 +1,159 @@
+
+body{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
+
+
+/*  start navbar */
+
+.nav-item{
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+}
+.dropdown-item{
+
+    letter-spacing: .2em;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+/* end navbar */
+
+
+/* start-category */
+
+.my-row-class{
+padding-top: 15px;
+}
+
+.my_row_class .mx_auto{
+    color:black;
+    font-size: 12px;
+
+}
+/* end-category */
+.my_image{
+    width: 100%;
+    height: 392px;
+    
+}
+.myy_image{
+    width: 100%;
+    height: auto;
+}
+.my_tittle{
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.1px;
+    font-family: system-ui;
+
+}
+.my_tittles{
+    font-size: 18px;
+    font-family: system-ui;
+    letter-spacing: .2em;
+
+}
+
+.my_image_padding{
+    padding: 5px;
+    
+}
+
+/* start-category */
+
+.card-img-top .my_image 
+{
+    width: 339px;
+    height: 279px;
+}
+
+
+
+
+
+/* end-category */
+/* start-product */
+
+.my_product_row_class{
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.my_product_row_class .mx_auto{
+
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* end-product */
+
+.my_footer{
+    background-color:#9e9e9e4d;
+    height: 60px;
+}
+.my_footer p{
+    padding-top: 20px;
+    font-size: 14px;
+
+}
+
+/* start searchapp-search.html */
+.my_search_text{
+
+padding-top: 20px;
+}
+
+/* end searchapp-search.html */
+
+/* start-cart */
+
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .bg-grey {
+    background-color: #eae8e8;
+    }
+    
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+    
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+
+.custom_a{
+    text-decoration: none;
+
+}
+.custom_icon{
+    text-decoration: none;
+    color:rgb(22, 103, 11) !important;
+}
+
+/* end-cart */

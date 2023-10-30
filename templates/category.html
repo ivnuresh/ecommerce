@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to ABC store where you can buy different items.
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{ category.name }} - ABC store
+    {% else %}
+        See our new collections at ABC store
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+    
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'shoppingapp:allproducts' %}" style="position: relative;top: -54px;left: 281px;">
+                    OUR PRODUCT COLLECTION</a>
+              </li>
+            </ul>  
+   </div>
+   </nav>
+    {% endif %}
+
+<div class="mx_auto">  
+    {% if category %}
+    <img class="my_image" src="{{category.image.url}}" alt="{{category.name}}">
+</div>
+<br>
+<div class="mx_auto">
+    <h1 class="text-center my_tittle ">{{category.name}}</h1>
+    <p class="text-center my_tittles">{{category.description}}</p>
+</div>
+{% else %}
+<div>
+<img class="myy_image my_image_padding" src="{% static 'img/bg2.jpg' %}" alt="our products" style="width: 1391px;" >
+</div>
+<br>
+<div>
+    <h1 class="text-center my_tittle">our products collection</h1>
+    <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+</div>
+{% endif %}
+
+
+<div class="container text-center">
+    <div class="row">
+        {% for product in products.object_list %}
+        <div class="col-6 col-md-4">
+            <a href="{{ product.get_url }}"><img class="card-img-top my_image" src="{{ product.image.url }}" alt="{{ product.name }}" 
+                style="width:339px; height:279px;"></a>
+            <h4>{{ product.name }}</h4>
+            <h4>${{ product.price }}</h4>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mx_auto">
+        {% if products.paginator.num_pages > 1 %}
+
+        <hr>
+   
+
+        <div class="text-center"> 
+            {% for pg in products.paginator.page_range %}
+
+            <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} actvie {% endif %} ">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %} 
+    </div>
+    <br>
+
+</div>
+
+
+
+
+{% endblock %}

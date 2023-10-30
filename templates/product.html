@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    {% if product %}
+        {{ product.description|truncatewords:155 }}
+    {% else %}
+        Welcome to ABC store where you can buy different items.
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if product %}
+        {{ product.name }} - ABC store
+    {% else %}
+        See our new collections at ABC store
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container" style="padding-left: 60px;
+margin-left: -62px;">
+    <div class="row">
+        <div class="col " >
+            <p><a href="{% url 'shoppingapp:allproducts' %}">Home</a> | <a href="{{product.category.get_url}}">{{product.category}}</a> > {{product.name}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="product-image">
+                <img src="{{product.image.url}}" alt="{{product.name}}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col"style="padding-left: 542px;position: relative;top: -256px;font-size: 22px;">
+            <h1>{{product.name}}</h1>
+            <p>${{product.price}}</p>
+            <p>Product Description</p>
+            <p>{{product.description}}</p>
+            {% if product.stock <= 0 %}
+                <p style="color:red">Out of stock</p>
+            {% else %}
+                <a href="{% url 'cartapp:add_cart' product.id  %}" class="btn btn-secondary">Add to cart</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-image img {
+        width:  46%; /* Set the width to 100% to make all images the same width */
+        height: auto; /* Allow the height to adjust proportionally based on the width */
+    }
+</style>
+
+{% endblock %}
